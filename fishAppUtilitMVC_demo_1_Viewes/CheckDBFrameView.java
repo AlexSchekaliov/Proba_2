@@ -12,9 +12,9 @@ public class CheckDBFrameView extends JFrame {
 
 	
 	private static final long serialVersionUID = 1L;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JComboBox<String> comboBox;
+	private JButton connectButton;
+	private JButton exitAppButton;
+	private JComboBox<String> listDB;
 	private JLabel lblNewLabel;
 	
 
@@ -35,17 +35,17 @@ public class CheckDBFrameView extends JFrame {
 		lblNewLabel.setBounds(25, 32, 222, 40);
 		getContentPane().add(lblNewLabel);
 
-		comboBox = new JComboBox<String>();
-		comboBox.setBounds(315, 35, 93, 20);
-		getContentPane().add(comboBox);
+		listDB = new JComboBox<String>();
+		listDB.setBounds(315, 35, 93, 20);
+		getContentPane().add(listDB);
 
-		btnNewButton = new JButton("\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F");
-		btnNewButton.setBounds(161, 140, 135, 23);
-		getContentPane().add(btnNewButton);
+		connectButton = new JButton("\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F");
+		connectButton.setBounds(161, 140, 135, 23);
+		getContentPane().add(connectButton);
 
-		btnNewButton_1 = new JButton("\u0412\u044B\u0439\u0442\u0438");
-		btnNewButton_1.setBounds(319, 140, 89, 23);
-		getContentPane().add(btnNewButton_1);
+		exitAppButton = new JButton("\u0412\u044B\u0439\u0442\u0438");
+		exitAppButton.setBounds(319, 140, 89, 23);
+		getContentPane().add(exitAppButton);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -53,11 +53,11 @@ public class CheckDBFrameView extends JFrame {
 	
 	public JComboBox<String> getCombobox(){
 		
-		return comboBox;
+		return listDB;
 	}
 	
 	public void addConnectDBListener(ActionListener listenForConnectButton){
 		
-		btnNewButton.addActionListener(listenForConnectButton);
+		connectButton.addActionListener(listenForConnectButton);
 	}
 }

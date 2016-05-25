@@ -11,20 +11,22 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
 
 public class AutorizationFrameView extends JFrame {
 	
 	
 	private static final long serialVersionUID = 1L;
 	private JLayeredPane layeredPane;
-	private JButton autorization;
 	private JButton registration;
+	private JButton autorization;
 	private JLabel lblNewLabel;
 	private JTextField login;
 	private JTextField password;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JButton btnNewButton_2;
+	private JTextField IDSostav;
 
 	public AutorizationFrameView() {
 		
@@ -43,14 +45,18 @@ public class AutorizationFrameView extends JFrame {
 		layeredPane.setBounds(0, 0, 794, 572);
 		getContentPane().add(layeredPane);
 		
-		registration = new JButton("\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F");
-		registration.setBounds(508, 148, 111, 23);
-		layeredPane.add(registration,new Integer(2));
-		
-		autorization = new JButton("\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F");
-		autorization.setBounds(645, 148, 110, 23);
+		autorization = new JButton("\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F");
+		autorization.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		autorization.setBounds(507, 190, 111, 23);
 		layeredPane.add(autorization,new Integer(2));
 		
+		registration = new JButton("\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F");
+		registration.setBounds(648, 190, 110, 23);
+		layeredPane.add(registration,new Integer(2));
+
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Dell\\workspace\\LogisticUtilit\\fish_2.jpg"));
 		lblNewLabel.setBounds(0, 0, 794, 571);
@@ -62,7 +68,7 @@ public class AutorizationFrameView extends JFrame {
 		login.setColumns(10);
 		
 		password = new JTextField();
-		password.setBounds(616, 100, 139, 20);
+		password.setBounds(614, 98, 141, 20);
 		layeredPane.add(password,new Integer(2));
 		password.setColumns(10);
 		
@@ -82,8 +88,19 @@ public class AutorizationFrameView extends JFrame {
 		layeredPane.add(lblNewLabel_2, new Integer(2));
 		
 		btnNewButton_2 = new JButton("\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0434\u0440\u0443\u0433\u0443\u044E \u0431\u0430\u0437\u0443");
-		btnNewButton_2.setBounds(555, 214, 170, 23);
+		btnNewButton_2.setBounds(559, 248, 170, 23);
 		layeredPane.add(btnNewButton_2,new Integer(2));
+		
+		JLabel lblId = new JLabel("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 ID \u0441\u043E\u0441\u0442\u0430\u0432\u0430");
+		lblId.setFont(new Font("Comic Sans MS", Font.ITALIC, 12));
+		layeredPane.setLayer(lblId, 2);
+		lblId.setBounds(614, 127, 125, 14);
+		layeredPane.add(lblId);
+		
+		IDSostav = new JTextField();
+		IDSostav.setColumns(10);
+		IDSostav.setBounds(614, 152, 141, 20);
+		layeredPane.add(IDSostav);
 		setSize(800, 600);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -92,6 +109,11 @@ public class AutorizationFrameView extends JFrame {
    public void addAutorizationListener(ActionListener listenForAutorizationButton){
 		
 		autorization.addActionListener(listenForAutorizationButton);
+	}
+   
+   public void addTransitionRegistrationListener(ActionListener listenForRegistrationButton){
+		
+		registration.addActionListener(listenForRegistrationButton);
 	}
    
    public String getLogin(){
@@ -107,4 +129,5 @@ public class AutorizationFrameView extends JFrame {
 	   login.setText(null);
 	   password.setText(null);   
    }
+
 }

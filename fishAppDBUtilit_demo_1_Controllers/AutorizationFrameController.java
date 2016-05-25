@@ -9,7 +9,9 @@ import javax.swing.JOptionPane;
 import fishAppDBUtilit_demo_1_Models.AutorizationFrameModel;
 import fishAppUtilitMVC_demo_1_Viewes.AutorizationFrameView;
 import fishAppDBUtilit_demo_1_Models.CheckDBFrameModel;
+import fishAppDBUtilit_demo_1_Models.RegistrationFrameModel;
 import fishAppUtilitMVC_demo_1_Viewes.CheckDBFrameView;
+import fishAppUtilitMVC_demo_1_Viewes.RegistrationFrameView;
 
 
 
@@ -25,11 +27,19 @@ public class AutorizationFrameController {
 	
 	
 
-	public AutorizationFrameController(AutorizationFrameView view, AutorizationFrameModel model) {
+	public AutorizationFrameController(final AutorizationFrameView view, AutorizationFrameModel model) {
 	
 		this.view=view;
 		this.model=model;
 		view.addAutorizationListener(new AutorizationListener());
+		view.addTransitionRegistrationListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.setVisible(false);
+				new RegistrationFrameController(new RegistrationFrameView(), new RegistrationFrameModel());
+			}
+		});
 	}
 	
 	class AutorizationListener implements ActionListener{
